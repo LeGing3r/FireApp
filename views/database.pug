@@ -1,0 +1,23 @@
+extends ../node_modules/pug-bootstrap/_bootstrap.pug
+block body
+    .container
+        h1 Yo yo yo whats up
+        table(class="table table-dark")
+            thead  
+                th Name 
+                th Age
+                th Gender
+            tbody 
+                each person in testObj
+                    tr 
+                        td #{person.name} 
+                        td #{person.age}
+                        td #{person.gender}
+    j2 Adding one new record
+    form(name="adding" method="POST" action="/database/add")
+        div.form-group
+            input#name.form-control(type="text", placeholder="name" name="name")
+            input#name.form-control(type="number", placeholder="age" name="age")
+            input#name.form-control(type="text", placeholder="gender" name="gender")
+            button.btn.btn-primary(type="submit" action="/database/add") Add record
+
